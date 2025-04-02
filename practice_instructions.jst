@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Istruzioni</title>
+    <style>
+        /* Nascondere il div con la scritta "Project Implicit" */
+        div[style="text-align:center; padding: 1em"] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="panel panel-info" style="margin-top:1em">
+        <div class="panel-heading">
+            <h1 class="panel-title" style="font-size:2em">
+                Istruzioni
+            </h1>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <p class="lead" style="font-size: 1em;">
+            Successivamente, ti verrà chiesto di usare i tasti <b>"E"</b> e <b>"I"</b> della tastiera per categorizzare, il più velocemente possibile, delle parole all’interno di alcuni gruppi.
+        </p>
+
+        <p style="font-size: 1em;">
+            Questi sono i quattro gruppi e le parole che appartengono a ciascuno di esso:
+        </p>
+
+        <div>
+            <img class="center-block" width="600" src="table.jpg">
+        </div>
+
+        <br><br>
+
+        <p style="font-size: 1em;">
+            Ci sono quattro parti. Le istruzioni cambiano per ogni parte. Fai attenzione!
+        </p>
+    </div>
+
+    <!-- Questo è il div che contiene la scritta "Project Implicit" che sarà nascosto -->
+    <div style="text-align:center; padding: 1em">· Project Implicit ·</div>
+
+    <script>
+        // Questo script nasconde dinamicamente il div con la scritta "Project Implicit"
+        document.addEventListener('DOMContentLoaded', function() {
+            var projectImplicit = document.querySelector('div[style="text-align:center; padding: 1em"]');
+            if (projectImplicit) {
+                projectImplicit.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
