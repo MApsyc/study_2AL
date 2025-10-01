@@ -28,6 +28,14 @@ define(['managerAPI',
 		title: 'Consenso Informato', 
 		buttonText: 'Invia' }],	    
 
+
+        criterio1: [{
+		type: 'quest', 
+		name: 'criterio1', 
+		scriptUrl: 'criterio1.js', 
+		buttonText: 'Invia' }],	    
+
+		
         biat_instructions: [{
             inherit: 'instructions',
             name: 'biat_instructions',
@@ -95,6 +103,24 @@ define(['managerAPI',
             ],
             data: [
                     {
+                        inherit: 'criterio1'
+                    }
+            ],
+            elseData: [// if participants does not agree to participate, they are redirected.
+                {
+                    inherit: 'redirect'
+                }
+            ]
+    	},
+	 
+		{inherit: 'criterio1'},
+        {
+            mixer: 'branch',// se il partecipante clicca "no", viene reindirizzato sulla pagina iniziale di google
+            conditions: [
+                function(){ return piGlobal.criterio1.questions.usercriterio1.response === true;} // if the question name or response options were changed in consent.js, adapt this too 
+            ],
+            data: [
+                    {
                         inherit: 'practice_instructions'
                     }
             ],
@@ -104,6 +130,7 @@ define(['managerAPI',
                 }
             ]
     },
+		
     {
         inherit: 'practice'
     },
